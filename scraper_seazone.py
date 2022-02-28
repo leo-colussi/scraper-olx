@@ -30,7 +30,7 @@ PAGINAS = 1
 
 class Scraper():
     """
-    Classe para definição do Scraper e seus métodos
+    Classe para definição do Scraper e seus métodos.
     """
 
     def __init__(self):
@@ -91,7 +91,7 @@ class Scraper():
 
     def tipo(self, anuncio):
         """
-        Retorna um dict com todas as informações dos locais
+        Retorna um dict com todas as informações dos locais.
 
         :param anuncio: bs4 object
 
@@ -179,7 +179,7 @@ class Scraper():
 
     def localizacao(self, anuncio):
         """
-        Retorna um dict com todas as informações dos locais
+        Retorna um dict com todas as informações dos locais.
 
         :param anuncio: bs4 object
 
@@ -204,7 +204,7 @@ class Scraper():
             tamanho, localizacao, descricao):
         """
         Cria um arquivo csv e escreve os dados coletado em um
-        arquivo chamado terrenos.csv
+        arquivo chamado "terrenos.csv".
 
         :param tipo: string
         :param titulo: string
@@ -288,7 +288,7 @@ class Scraper():
 
 def main():
     """
-    Função principal para o funcionamento do script
+    Função principal para o funcionamento do script.
     """
     scraper = Scraper()
     lista_pag = scraper.pagina_principal()
