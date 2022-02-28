@@ -242,14 +242,14 @@ class Scraper():
 
         :return string: string
         """
-        string = 'Número de anúncios por região:\n'
+        string = '\nNúmero de anúncios por região:\n\n'
         for regiao in set(self.regioes):
             contador = 0
             for item in self.regioes:
                 if item == regiao:
                     contador += 1
             string += f'{regiao}: {contador}\n'
-        return string
+        return string + '\n'
 
 
     def analise_tamanho(self):
@@ -264,10 +264,10 @@ class Scraper():
         min_tam = np.min(self.tamanhos)
         max_tam = np.max(self.tamanhos)
         med_tam = np.mean(self.tamanhos)
-        return f'''Tamanho terreno:\n\t
-                    Médio: {med_tam:.2f}\n\t
-                    Mínimo: {min_tam:.2f}\n\t
-                    Máximo: {max_tam:.2f}\n\n'''
+        return f'''Tamanho do terreno:\t
+                    Médio: {med_tam:.2f}\t
+                    Mínimo: {min_tam:.2f}\t
+                    Máximo: {max_tam:.2f}\n'''
 
     def analise_preco(self):
         """
@@ -280,9 +280,9 @@ class Scraper():
         min_preco = np.min(self.precos)
         max_preco = np.max(self.precos)
         med_preco = np.mean(self.precos)
-        return f'''Preço:\n\t
-                    Médio: {med_preco:.2f}\n\t
-                    Mínimo: {min_preco:.2f}\n\t
+        return f'''Preço do terreno:\n\t
+                    Médio: {med_preco:.2f}\t
+                    Mínimo: {min_preco:.2f}\t
                     Máximo: {max_preco:.2f}\n'''
 
 
@@ -292,7 +292,6 @@ def main():
     """
     scraper = Scraper()
     lista_pag = scraper.pagina_principal()
-    print(len(lista_pag))
 
     for link in lista_pag:
         anuncio, request = scraper.pagina_anuncio(link)
@@ -312,7 +311,7 @@ def main():
     analise_tamanho = scraper.analise_tamanho()
     analise_preco = scraper.analise_preco()
 
-    print(analise_local, analise_tamanho, analise_preco)
+    print(analise_local + analise_tamanho + analise_preco)
 
 
 if "__main__" == __name__:
